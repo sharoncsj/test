@@ -13,6 +13,7 @@ from datetime import datetime
 
 #read all request in current directory
 
+i = 1
 path = os.getcwd()
 csv_files = glob.glob(os.path.join(path, "*.xlsx"))
 
@@ -24,17 +25,19 @@ for file in csv_files:
 	print('File:', file.split("\\")[-1])
 
 	print('data:')
-	df.iloc[0:5,0:5]
 	np_array = df.to_numpy()
 	x = np_array.transpose()
 	#print(x)
 	y = x[0:1]
 	jobname= x[2:3,0:1]
 	date = x[1:2,0:1]
-	datime = datetime.strptime(date, )
-	print("Scan Job:",jobname)
+	#datime = datetime.strptime
+	print("Scan Job", i,":",jobname)
 	print("Date:", date)
 	print("target:", y)
+	i = i+1
+
+	
 
 
 
